@@ -1,6 +1,6 @@
 function capitalize(word) {
   if (word === undefined) throw new Error("word is required");
-  return word.charAt(0).toUpperCase() + s.slice(1)// Add your code here!
+  return word.charAt(0).toUpperCase() + word.slice(1)// Add your code here!
 }
 
 function generateInitials(firstName, lastName) {
@@ -46,12 +46,12 @@ function reverseWord(word) {
 
 function reverseAllWords(words) {
   if (words === undefined) throw new Error("words is required");
-  return word.split('').reverse().join('');
+  return words.split('').reverse().join('');
 }
 
 function countLinuxUsers(users) {
   if (users === undefined) throw new Error("users is required");
-  var count=0;
+  //var count=0;
   //for(("Type","Linux") in users){
   //    count ++;
   //  }
@@ -70,17 +70,19 @@ function getMeanScore(scores) {
 
 function simpleFizzBuzz(n) {
   if (n === undefined) throw new Error("n is required");
-  var answer = n;
-  if (n % 3 == 0) {
-      answer = "fizz";}
-    if (n % 5 == 0) {
-      answer = "fizzbuzz";
-    }
-  else; {
-    if (n % 5 == 0){
-      answer = "buzz";}
+  if (n % 3 === 0) {
+      if (n % 5 === 0) {
+        return "fizzbuzz";}
+      else { 
+        return "fizz";}
   }
-  return answer;
+  else {
+    if (n % 5 === 0){
+      return "buzz";}
+    else {
+      return n;}
+  }
+   
 }
 
 module.exports = {

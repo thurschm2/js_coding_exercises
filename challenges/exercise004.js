@@ -7,9 +7,9 @@ function findSmallNums(nums) {
      
       newvar.push(nums[i]);
     }
-    //console.log(newvar);
+    
   }
-  return nums
+  return newvar
 
 }
 
@@ -17,21 +17,39 @@ function findNamesBeginningWith(names, char) {
   if (!names) throw new Error("names is required");
   if (!char) throw new Error("char is required");
   var newlist = [];
-  for (var i = 0; i<names.length; i ++) {
+  var currentname;
+  for (var i = 0; i < names.length; i ++) {
     currentname = names[i];
-    if (currentname[0] == char) {}
-      newlist.push(currentname);
-  }// Your code here
+    if (currentname[0] === char) {
+      newlist.push(names[i]);
+    }
+  } 
+  
+  return newlist
 }
 
 function findVerbs(words) {
   if (!words) throw new Error("words is required");
-  // Your code here
+  var verbs = [];
+  for (var i = 0; i <words.length; i ++) {
+    if (words[i].substring(0,2) === "to") {
+      verbs.push(words[i])
+    }
+  } 
+  return verbs
 }
 
 function getIntegers(nums) {
   if (!nums) throw new Error("nums is required");
-  // Your code here
+  var integers = [];
+  
+  for (var i = 0; i <nums.length; i ++) {
+    
+    if (Number.isInteger(nums[i]) === true) {
+      integers.push(nums[i])
+    }
+  }
+  return integers
 }
 
 function getCities(users) {
@@ -41,18 +59,44 @@ function getCities(users) {
 
 function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
-  // Your code here
+  var sqrts = [];
+  var current;
+  //console.log(nums)
+  for (var i = 0; i <nums.length; i ++) {
+      current = nums[i]
+      current = Math.sqrt(nums[i])
+      current = parseFloat(current.toFixed(2))
+      //console.log(current)
+      sqrts.push(current)
+    
+  }
+  return sqrts
 }
 
 function findSentencesContaining(sentences, str) {
   if (!sentences) throw new Error("sentences is required");
   if (!str) throw new Error("str is required");
-  // Your code here
+  var newlist = [];
+  for (var i = 0; i <sentences.length; i ++) {
+    if (sentences[i].includes(str)) {
+      newlist.push(sentences[i]);
+    }
+  }
+  return newlist
 }
 
 function getLongestSides(triangles) {
   if (!triangles) throw new Error("triangles is required");
-  // Your code here
+  var largest = [];
+  var maxside
+  for (var i = 0; i <triangles.length; i ++) {
+    maxside = 0;
+    for (var j = 0; j < triangles[i].length; j ++) {
+      if (triangles[i][j] > maxside) {maxside = triangles[i][j]}
+    }
+    largest.push(maxside)
+  }
+  return largest
 }
 
 module.exports = {

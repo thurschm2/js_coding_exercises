@@ -24,13 +24,26 @@ function camelCaseWords(words) {
 
 function getTotalSubjects(people) {
   if (people === undefined) throw new Error("people is required");
-  // Your code here!
+  var count = 0;
+  for (var i = 0; i<people.length ; i ++) {
+    count = count + people[i].subjects.length;
+  }
+  return count
 }
 
 function checkIngredients(menu, ingredient) {
   if (menu === undefined) throw new Error("menu is required");
   if (!ingredient) throw new Error("ingredient is required");
-  // Your code here!
+  var found = false;
+  for (var i = 0; i<menu.length ; i ++) {
+    var list_ingr = menu[i].ingredients; 
+    for (var j = 0 ; j < list_ingr.length; j ++) {
+      if (list_ingr[j] === ingredient) {
+        found = true;
+      }
+    }
+  }
+  return found;  
 }
 
 function duplicateNumbers(arr1, arr2) {

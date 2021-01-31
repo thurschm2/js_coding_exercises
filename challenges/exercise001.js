@@ -12,9 +12,11 @@ function generateInitials(firstName, lastName) {
 function addVAT(originalPrice, vatRate) {
   if (originalPrice === undefined) throw new Error("originalPrice is requied");
   if (vatRate === undefined) throw new Error("vatRate is required");
-  return originalPrice + (originalPrice * vatRate/100)
-
-}   
+  var answer;
+  answer = originalPrice + (originalPrice * vatRate/100)
+  //return answer.round(2)
+  return answer
+  }   
 
 function getSalePrice(originalPrice, reduction) {
   if (originalPrice === undefined) throw new Error("originalPrice is required");
@@ -40,22 +42,35 @@ function getMiddleCharacter(str) {
 
 function reverseWord(word) {
   if (word === undefined) throw new Error("word is required");
-  return word.split('').reverse().join('');
+  var answer = "";
+  for (var i = word.length-1;i >= 0; i --) {
+    answer = answer + word[i]
+     }
+  //r answer = ord.split('').reverse().join('');
+  return answer;
 
 }
 
 function reverseAllWords(words) {
   if (words === undefined) throw new Error("words is required");
-  return words.split('').reverse().join('');
+  var Aanswer = [];
+  for (var i = 0 ; i= words.length; i++){
+    Aanswer.push(reverseWord(words[i]));
+  }
+  return Aanswer;
 }
 
 function countLinuxUsers(users) {
   if (users === undefined) throw new Error("users is required");
-  //var count=0;
-  //for(("Type","Linux") in users){
-  //    count ++;
-  //  }
-  //return count;
+  var count=0;
+  /*for (var i = 0; i= users.length; i ++) {
+    if (users[i]["type"] === "Linux") {
+      count ++;
+    }
+  }
+  */
+  
+  return count;
  }
 
 function getMeanScore(scores) {

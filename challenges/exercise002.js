@@ -16,9 +16,8 @@ function getBusNumbers(people) {
   var remainder;
   nbbus = Math.floor(people/40);
   remainder = people % 40; 
-  if (remainder> 0); {
-    nbbus ++;
-  }
+  if (remainder> 0) {nbbus ++;}
+  //console.log(people,nbbus)
   return nbbus;
 }
 
@@ -26,7 +25,7 @@ function countSheep(arr) {
   if (arr === undefined) throw new Error("arr is required");
   var count = 0;
   for( var i = 0; i < arr.length; i++){
-        if(arr[i] == "Sheep") 
+        if(arr[i] === "sheep") 
           {count ++};
     }
   return count
@@ -36,7 +35,12 @@ function countSheep(arr) {
 
 function hasMPostCode(person) {
   if (person === undefined) throw new Error("person is required");
-  return person.address.postcode[0] == "M"// Your code here!
+  if ((person.address.postCode.charAt(0) === "M") && 
+    (person.address.city === "Manchester")) {
+      return true;
+    }
+  else {return false;}
+  return false
 }
 
 module.exports = {

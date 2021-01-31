@@ -32,7 +32,7 @@ function findVerbs(words) {
   if (!words) throw new Error("words is required");
   var verbs = [];
   for (var i = 0; i <words.length; i ++) {
-    if (words[i].substring(0,2) === "to") {
+    if (words[i].substring(0,3) === "to ") {
       verbs.push(words[i])
     }
   } 
@@ -54,7 +54,12 @@ function getIntegers(nums) {
 
 function getCities(users) {
   if (!users) throw new Error("users is required");
-  // Your code here
+  var ListCities= [];
+  for (var i = 0; i<users.length; i ++){
+    ListCities.push(users[i].data.city.displayName);
+  } 
+  console.log(ListCities)
+  return ListCities 
 }
 
 function getSquareRoots(nums) {
@@ -78,7 +83,8 @@ function findSentencesContaining(sentences, str) {
   if (!str) throw new Error("str is required");
   var newlist = [];
   for (var i = 0; i <sentences.length; i ++) {
-    if (sentences[i].includes(str)) {
+    var currentSentence = sentences[i].toUpperCase();
+    if (currentSentence.includes(str.toUpperCase())) {
       newlist.push(sentences[i]);
     }
   }

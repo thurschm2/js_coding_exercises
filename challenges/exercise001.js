@@ -12,10 +12,10 @@ function generateInitials(firstName, lastName) {
 function addVAT(originalPrice, vatRate) {
   if (originalPrice === undefined) throw new Error("originalPrice is requied");
   if (vatRate === undefined) throw new Error("vatRate is required");
-  var answer;
+  let answer;
   answer = originalPrice + (originalPrice * vatRate/100)
-  //return answer.round(2)
-  return answer
+  return Math.round(answer)
+  
   }   
 
 function getSalePrice(originalPrice, reduction) {
@@ -52,35 +52,39 @@ function reverseWord(word) {
 }
 
 function reverseAllWords(words) {
-  if (words === undefined) throw new Error("words is required");
-  var Aanswer = [];
-  for (var i = 0 ; i= words.length; i++){
-    Aanswer.push(reverseWord(words[i]));
-  }
-  return Aanswer;
+    if (words === undefined) throw new Error("words is required");
+    let listWords = [...words];
+    
+    var answer = [];
+    
+    listWords.forEach(word => {
+        //console.log("answer: ",answer)
+        //let reversed = answer.push(reverseWord(words));
+        let newWord;
+        for (var i = word.length - 1; i >= 0; i--) {
+            newWord += word[i];
+        }
+        answer.push(newWord);
+    }
+
+    );
+     return answer;
 }
 
 function countLinuxUsers(users) {
   if (users === undefined) throw new Error("users is required");
-  var count=0;
-  /*for (var i = 0; i= users.length; i ++) {
-    if (users[i]["type"] === "Linux") {
-      count ++;
-    }
-  }
-  */
-  
+  const count = users.filter(item => item.type === 'Linux').length;
   return count;
  }
 
 function getMeanScore(scores) {
-  if (scores === undefined) throw new Error("scores is required");
-  var total = 0;
-  for(var i = 0; i < scores.length; i++) {
-    total += scores[i];
-  }
-  var avg = total / scores.length;
-  return avg.toFixed(2);
+    if (scores === undefined) throw new Error("scores is required");
+    let total = 0;
+    scores.forEach(value => {
+        total += value;
+    })
+    let avg = total / scores.length;
+  return Math.round(avg);
 }
 
 function simpleFizzBuzz(n) {

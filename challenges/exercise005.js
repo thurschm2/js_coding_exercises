@@ -1,25 +1,20 @@
 const findNextNumber = (nums, n) => {
   if (nums === undefined) throw new Error("nums is required");
   if (n === undefined) throw new Error("n is required");
-  for (var i = 0; i < nums.length; i++); {
-    if (nums[i]=== n); {
-      if (i === nums.length-1);{
-        return null;}
-      return  nums[i+1];}
-  }
+    let position = nums.indexOf(n);
+    if (position == -1) { return null }
+    else
+        if (position == nums.length - 1) { return null; }
+        else { return nums[position + 1] }
   return null
 };
 
 const count1sand0s = str => {
   if (str === undefined) throw new Error("str is required");
-  var nb_0 = 0;
-  var nb_1 = 0;
-  for (var i = 0; i< str.length; i ++) {
-    if (str.charAt(i) === "0") {nb_0 +=1;}
-    else {nb_1 +=1;}
-  }
+    let nbZeros = (str.match(/"0"/g) || []).length;
+    let nbOnes = (str.match(/"1"/g) || []).length;
 
-  return //["1":nb_1,"0":nb_0] 
+    //return ["1": nbOnes, "0": nbZeros];
 };
 
 const reverseNumber = n => {

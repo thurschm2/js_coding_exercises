@@ -13,6 +13,11 @@ const count1sand0s = str => {
   if (str === undefined) throw new Error("str is required");
     let nbZeros = (str.match(/"0"/g) || []).length;
     let nbOnes = (str.match(/"1"/g) || []).length;
+    var numbers = new Array();
+    numbers['1'] = nbZeros;
+    numbers['0'] = nbOnes;
+    console.log("numbers : ",numbers)
+    return numbers;
 
     //return ["1": nbOnes, "0": nbZeros];
 };

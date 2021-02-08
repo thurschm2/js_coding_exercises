@@ -66,9 +66,9 @@ function reverseAllWords(words) {
         for (var i = word.length - 1; i >= 0; i--) {
             answer = answer + word[i];
         }
-        console.log(word, " -> ", answer);
+        //console.log(word, " -> ", answer);
         newListWords.push(answer);
-        console.log(newListWords);
+        //console.log(newListWords);
     });
      
     return newListWords;
@@ -87,7 +87,8 @@ function getMeanScore(scores) {
         total += value;
     })
     let avg = total / scores.length;
-  return Math.round(avg);
+    avg = Number(avg.toFixed(2));
+    return avg;
 }
 
 function simpleFizzBuzz(n) {

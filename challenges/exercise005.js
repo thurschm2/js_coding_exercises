@@ -11,13 +11,13 @@ const findNextNumber = (nums, n) => {
 
 const count1sand0s = str => {
   if (str === undefined) throw new Error("str is required");
-    let nbZeros = (str.match(/"0"/g) || []).length;
-    let nbOnes = (str.match(/"1"/g) || []).length;
-    var numbers = new Array();
-    numbers['1'] = nbZeros;
-    numbers['0'] = nbOnes;
-    console.log("numbers : ",numbers)
-    return numbers;
+    let nbZeros = (str.match(/0/g) || []).length;
+    let nbOnes = (str.match(/1/g) || []).length;
+    console.log("0 ", nbZeros, " 1 ", nbOnes);
+    let obj = { 1: nbOnes, 0: nbZeros };
+    console.log("object : ", obj)
+
+    return obj;
 
     //return ["1": nbOnes, "0": nbZeros];
 };

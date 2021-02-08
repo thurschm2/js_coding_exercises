@@ -49,7 +49,7 @@ function reverseWord(word) {
   for (var i = word.length-1;i >= 0; i --) {
     answer = answer + word[i]
      }
-  //r answer = ord.split('').reverse().join('');
+  //r answer = word.split('').reverse().join('');
   return answer;
 
 }
@@ -57,21 +57,21 @@ function reverseWord(word) {
 function reverseAllWords(words) {
     if (words === undefined) throw new Error("words is required");
     let listWords = [...words];
-    
-    var answer = [];
-    
-    listWords.forEach(word => {
-        //console.log("answer: ",answer)
-        //let reversed = answer.push(reverseWord(words));
-        let newWord;
-        for (var i = word.length - 1; i >= 0; i--) {
-            newWord += word[i];
-        }
-        answer.push(newWord);
-    }
+    var newListWords = [];
 
-    );
-     return answer;
+
+    listWords.forEach(word => {
+        var answer = "";
+        
+        for (var i = word.length - 1; i >= 0; i--) {
+            answer = answer + word[i];
+        }
+        console.log(word, " -> ", answer);
+        newListWords.push(answer);
+        console.log(newListWords);
+    });
+     
+    return newListWords;
 }
 
 function countLinuxUsers(users) {

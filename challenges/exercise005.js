@@ -58,16 +58,30 @@ const arrShift = arr => {
 
 const findNeedle = (haystack, searchTerm) => {
   if (haystack === undefined) throw new Error("haystack is required");
-  if (searchTerm === undefined) throw new Error("searchTerm is required");
+    if (searchTerm === undefined) throw new Error("searchTerm is required");
+    console.log(haystack, searchTerm);
+    console.log(Object.values(haystack).indexOf(searchTerm));
     if (Object.values(haystack).indexOf(searchTerm) > -1) {
         return true;
     }
-    return false;
+    else return false;
 };
 
 const getWordFrequencies = str => {
   if (str === undefined) throw new Error("str is required");
-  // Your code here!
+    var wordsString = str;
+    var wordArray = wordsString.split(' ');
+    var wordCounter = [];
+    
+    for (var i = 0; i < wordArray.length; i++) {
+        let frequency = (str.match(/wordArray[i]/g) || []).length;
+        console.log(wordArray[i], frequency);
+    }
+    // need to create an object with result
+    /*var armixed = wordArray.map(function (x, y) {
+        return [x, wordCounter[y]]
+    });
+*/    return armixed;
 };
 
 module.exports = {

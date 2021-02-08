@@ -13,28 +13,47 @@ const count1sand0s = str => {
   if (str === undefined) throw new Error("str is required");
     let nbZeros = (str.match(/0/g) || []).length;
     let nbOnes = (str.match(/1/g) || []).length;
-    console.log("0 ", nbZeros, " 1 ", nbOnes);
+    //console.log("0 ", nbZeros, " 1 ", nbOnes);
     let obj = { 1: nbOnes, 0: nbZeros };
-    console.log("object : ", obj)
+    //console.log("object : ", obj)
 
     return obj;
 
-    //return ["1": nbOnes, "0": nbZeros];
 };
 
 const reverseNumber = n => {
   if (n === undefined) throw new Error("n is required");
-  // Your code here!
+    let numString = n.toString();
+    var answer = "";
+    for (var i = numString.length - 1; i >= 0; i--) {
+        answer = answer + numString[i]
+    }
+    return Number(answer);
 };
 
 const sumArrays = arrs => {
   if (arrs === undefined) throw new Error("arrs is required");
-  // Your code here!
+    let total = 0;
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;
+    for (var i = 0; i < arrs.length; i++) {
+        
+        total += arrs[i].reduce(reducer);
+        
+
+    };
+
+return total;
 };
 
 const arrShift = arr => {
-  if (arr === undefined) throw new Error("arr is required");
-  // Your code here!
+    if (arr === undefined) throw new Error("arr is required");
+    if (arr.length >1) {
+        let temp = arr[0];
+        arr[0] = arr[arr.length - 1];
+        arr[arr.length - 1] = temp;
+    }
+    return arr;
+   
 };
 
 const findNeedle = (haystack, searchTerm) => {

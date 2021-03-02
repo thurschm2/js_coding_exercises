@@ -57,18 +57,17 @@ const arrShift = arr => {
 const findNeedle = (haystack, searchTerm) => {
   if (haystack === undefined) throw new Error("haystack is required");
   if (searchTerm === undefined) throw new Error("searchTerm is required");
-  const toSearch = searchTerm.toLowerCase()
-  console.log(haystack, searchTerm, toSearch)
-  if (Object.values(haystack).indexOf(toSearch) > -1) {
-    return true;
-  }
-  else return false;
+  const objectValues = Object.values(haystack);
+  const objectValuesLowerCase = objectValues.toString().toLowerCase();
+
+  return (objectValuesLowerCase.indexOf(searchTerm.toLowerCase()) > -1);
+
 };
 
 const getWordFrequencies = str => {
   if (str === undefined) throw new Error("str is required");
-  const wordsString = str.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "")
-  const wordArray = wordsString.split(' ');
+  const wordsString = str.replace(/[.,/#!$%^&?*;:{}=\-_`~()]/g, "")
+  const wordArray = wordsString.toLowerCase().split(' ');
   const answer = {};
 
   for (var x = 0; x < wordArray.length; x++) {
